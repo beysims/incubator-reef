@@ -18,7 +18,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
+      <PropertyGroup>
         <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">$(MSBuildProjectDirectory)\..</SolutionDir>
 
         <!-- Enable the restore command to run before builds -->
@@ -33,7 +33,8 @@ under the License.
         <!-- Download NuGet.exe if it does not already exist -->
         <DownloadNuGetExe Condition=" '$(DownloadNuGetExe)' == '' ">true</DownloadNuGetExe>
     </PropertyGroup>
-
+    <Import Project="$(SolutionDir)\build.props" />
+    <Import Project="$(SolutionDir)\build.targets" />
     <ItemGroup Condition=" '$(PackageSources)' == '' ">
         <!-- Package sources used to restore packages. By default, registered sources under %APPDATA%\NuGet\NuGet.Config will be used -->
         <!-- The official NuGet package source (https://www.nuget.org/api/v2/) will be excluded if package sources are specified and it does not appear in the list -->
@@ -108,12 +109,7 @@ under the License.
 
     <!-- Make sure clean will clean up .nuget/packages and .nuget/nuspec directories -->
     <PropertyGroup>
-        <CleanDependsOn>$(CleanDependsOn);CleanNugetPackages</CleanDependsOn>
-    </PropertyGroup>
-
-    <!-- Make sure clean will clean up .nuget/packages and .nuget/nuspec directories -->
-    <PropertyGroup>
-        <CleanDependsOn>$(CleanDependsOn);CleanNugetPackages</CleanDependsOn>
+      <!--CleanDependsOn>$(CleanDependsOn);CleanNugetPackages</CleanDependsOn-->
     </PropertyGroup>
 
     <Target Name="CheckPrerequisites">
@@ -160,7 +156,7 @@ under the License.
             <PackagesDir>$(SolutionDir)\.nuget\packages</PackagesDir>
         </PropertyGroup>
 
-        <RemoveDir Directories="$(NuspecFilesDir);$(PackagesDir)" />
+        <!--<RemoveDir Directories="$(NuspecFilesDir);$(PackagesDir)" />-->
     </Target>
 
     <Choose>

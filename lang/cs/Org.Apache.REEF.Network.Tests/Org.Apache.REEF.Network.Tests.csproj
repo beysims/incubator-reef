@@ -36,6 +36,9 @@ under the License.
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
   <Import Project="$(SolutionDir)\build.props" />
   <PropertyGroup>
     <BuildPackage>false</BuildPackage>
