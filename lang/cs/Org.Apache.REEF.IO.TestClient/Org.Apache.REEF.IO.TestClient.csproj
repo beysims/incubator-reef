@@ -23,11 +23,12 @@ under the License.
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Org.Apache.REEF.IO.TestClient</RootNamespace>
     <AssemblyName>Org.Apache.REEF.IO.TestClient</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..</SolutionDir>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\build.props" />
+  <Import Project="$(SolutionDir)\build.targets" />
   <PropertyGroup>
     <BuildPackage>false</BuildPackage>
     <RestorePackages>true</RestorePackages>
